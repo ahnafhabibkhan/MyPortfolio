@@ -145,11 +145,13 @@ function Portfolio() {
                 }
 
                 .menuList{
+                    background-color: white;
                 }
 
                 .menuList a{
                     margin-left: 6px;
                     margin-top: 6px;
+                    color: black
                 }
 
                 .timeline a{
