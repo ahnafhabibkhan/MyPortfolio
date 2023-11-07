@@ -1,5 +1,11 @@
 
 import React, { useState, useRef } from 'react';
+import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
+import 'react-vertical-timeline-component/style.min.css';
+import { styled } from '@mui/material/styles';
+import Grid from '@mui/material/Unstable_Grid2';
+import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
 
 function Portfolio() {
     const introRef = useRef(null);
@@ -12,12 +18,17 @@ function Portfolio() {
     };
 
     const scrollTotimeline = () => {
-        if(timelineRef.current) {
+        if (timelineRef.current) {
             timelineRef.current.scrollIntoView({ behavior: 'smooth' });
         }
     };
-
-
+    const Item = styled(Paper)(({ theme }) => ({
+        backgroundColor: theme.palette.mode === 'dark' ? 'white' : '#2e2f31 ',
+        ...theme.typography.body2,
+        padding: theme.spacing(1),
+        textAlign: 'center',
+        color: theme.palette.text.secondary,
+      }));
 
 
     return (
@@ -180,7 +191,7 @@ function Portfolio() {
                 }
 
                 .content {
-                    padding-top: 400px; /* Add some padding to create space for the navigation bar */
+                    padding-top: 100px; /* Add some padding to create space for the navigation bar */
                     color: white;
                     text-align: left;
                   }
@@ -280,9 +291,25 @@ function Portfolio() {
                     height: 1px; 
                     float: left;
                     
-                }                   
+                }
+                .custom-vertical-timeline {
+                    max-width: 600px; /* Adjust the value as needed */
+                    margin-right: 650px;
+                  } 
 
-                `}
+                .timelineHeader{
+                    padding-bottom: 40px;
+                }
+                .vertical-timeline::before{
+                    height: 90%
+                }
+                .projects{
+                    color: white;
+                }
+            
+        
+
+            `}
             </style>
             <div className='background'>
                 <nav id="menuBar" className="navClass">
@@ -295,7 +322,7 @@ function Portfolio() {
                                     viewBox="0 0 20 20"
                                     fill="currentColor"
                                 >
-                                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+                                    <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
                                 </svg>
                             </a>
                         </li>
@@ -307,7 +334,7 @@ function Portfolio() {
                                     viewBox="0 0 20 20"
                                     fill="currentColor"
                                 >
-                                    <path d="M2.5 0a.5.5 0 0 1 .5.5V2h10V.5a.5.5 0 0 1 1 0v15a.5.5 0 0 1-1 0V15H3v.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5zM3 14h10v-3H3v3zm0-4h10V7H3v3zm0-4h10V3H3v3z"/>
+                                    <path d="M2.5 0a.5.5 0 0 1 .5.5V2h10V.5a.5.5 0 0 1 1 0v15a.5.5 0 0 1-1 0V15H3v.5a.5.5 0 0 1-1 0V.5a.5.5 0 0 1 .5-.5zM3 14h10v-3H3v3zm0-4h10V7H3v3zm0-4h10V3H3v3z" />
                                     {/* <path fill-rule="evenodd" d="M1 2.5A1.5 1.5 0 0 1 2.5 1h1A1.5 1.5 0 0 1 5 2.5h4.134a1 1 0 1 1 0 1h-2.01c.18.18.34.381.484.605.638.992.892 2.354.892 3.895 0 1.993.257 3.092.713 3.7.356.476.895.721 1.787.784A1.5 1.5 0 0 1 12.5 11h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5H6.866a1 1 0 1 1 0-1h1.711a2.839 2.839 0 0 1-.165-.2C7.743 11.407 7.5 10.007 7.5 8c0-1.46-.246-2.597-.733-3.355-.39-.605-.952-1-1.767-1.112A1.5 1.5 0 0 1 3.5 5h-1A1.5 1.5 0 0 1 1 3.5v-1zM2.5 2a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zm10 10a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1z" /> */}
                                 </svg>
                             </a>
@@ -345,8 +372,8 @@ function Portfolio() {
                                     viewBox="0 0 20 20"
                                     fill="currentColor"
                                 >
-                                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-                                    <path d="M6.854 4.646a.5.5 0 0 1 0 .708L4.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0zm2.292 0a.5.5 0 0 0 0 .708L11.793 8l-2.647 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708 0z"/>
+                                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                    <path d="M6.854 4.646a.5.5 0 0 1 0 .708L4.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0zm2.292 0a.5.5 0 0 0 0 .708L11.793 8l-2.647 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708 0z" />
                                 </svg>
                             </a>
                         </li>
@@ -358,8 +385,8 @@ function Portfolio() {
                                     viewBox="0 0 20 20"
                                     fill="currentColor"
                                 >
-                                    <path d="M10 2a2 2 0 0 1-1.5 1.937v5.087c.863.083 1.5.377 1.5.726 0 .414-.895.75-2 .75s-2-.336-2-.75c0-.35.637-.643 1.5-.726V3.937A2 2 0 1 1 10 2z"/>
-                                    <path d="M0 9.665v1.717a1 1 0 0 0 .553.894l6.553 3.277a2 2 0 0 0 1.788 0l6.553-3.277a1 1 0 0 0 .553-.894V9.665c0-.1-.06-.19-.152-.23L9.5 6.715v.993l5.227 2.178a.125.125 0 0 1 .001.23l-5.94 2.546a2 2 0 0 1-1.576 0l-5.94-2.546a.125.125 0 0 1 .001-.23L6.5 7.708l-.013-.988L.152 9.435a.25.25 0 0 0-.152.23z"/>
+                                    <path d="M10 2a2 2 0 0 1-1.5 1.937v5.087c.863.083 1.5.377 1.5.726 0 .414-.895.75-2 .75s-2-.336-2-.75c0-.35.637-.643 1.5-.726V3.937A2 2 0 1 1 10 2z" />
+                                    <path d="M0 9.665v1.717a1 1 0 0 0 .553.894l6.553 3.277a2 2 0 0 0 1.788 0l6.553-3.277a1 1 0 0 0 .553-.894V9.665c0-.1-.06-.19-.152-.23L9.5 6.715v.993l5.227 2.178a.125.125 0 0 1 .001.23l-5.94 2.546a2 2 0 0 1-1.576 0l-5.94-2.546a.125.125 0 0 1 .001-.23L6.5 7.708l-.013-.988L.152 9.435a.25.25 0 0 0-.152.23z" />
                                 </svg>
                             </a>
                         </li>
@@ -415,12 +442,139 @@ function Portfolio() {
                         <hr className='hline' />
                     </div>
                     <div className="content timelineclass" ref={timelineRef}>
-                        <h1>My Timeline</h1>
-                        <p>This is the content that will appear in the middle of the webpage.</p>
+                        <h1 className='timelineHeader'>My Timeline</h1>
+                        <VerticalTimeline className="custom-vertical-timeline">
+                            <VerticalTimelineElement
+                                className="vertical-timeline-element--work icon-hover"
+                                contentStyle={{
+                                    background: 'transparent',
+                                    color: '#fff',
+                                    boxShadow: '0 0px 0 #ddd',
+                                    marginTop: '-80px',
+                                    textAlign: 'right'
+                                }}
+                                contentArrowStyle={{ borderRight: '7px solid  transparent' }}
+                                iconStyle={{
+                                    background: '#fff',
+                                    color: '#fff',
+                                    width: '5px',
+                                    height: '5px',
+                                    marginLeft: '-3px',
+                                    marginTop: '50px',
+                                }}
+                            >
+                                <p className="vertical-timeline-element-subtitle">2021-09-01</p>
+                                <p>
+                                    First Software Developer Internship as SDET @Haivision
+                                </p>
+                            </VerticalTimelineElement>
+                            <VerticalTimelineElement
+                                className="vertical-timeline-element--work"
+                                contentStyle={{
+                                    background: 'transparent', color: '#fff',
+                                    boxShadow: '0 0px 0 #ddd',
+                                    marginTop: '-100px',
+                                }}
+                                contentArrowStyle={{ borderRight: '7px solid  transparent' }}
+                                iconStyle={{
+                                    background: '#fff',
+                                    color: '#fff',
+                                    width: '5px',
+                                    height: '5px',
+                                    marginLeft: '-3px',
+                                    marginTop: '-50px',
+
+                                }}
+                            // icon={<WorkIcon />}
+                            >
+                                <p className="vertical-timeline-element-subtitle">2022-05-01</p>
+                                <p>
+                                    Joined @UKG as a Software Developer Intern
+                                </p>
+                            </VerticalTimelineElement>
+                            <VerticalTimelineElement
+                                className="vertical-timeline-element--work"
+                                contentStyle={{
+                                    background: 'transparent', color: '#fff',
+                                    boxShadow: '0 0px 0 #ddd',
+                                    textAlign: 'right',
+                                    marginTop: '-80px',
+                                }}
+                                contentArrowStyle={{ borderRight: '7px solid  transparent' }} iconStyle={{
+                                    background: '#fff',
+                                    color: '#fff',
+                                    width: '5px',
+                                    height: '5px',
+                                    marginLeft: '-3px',
+                                    marginTop: '50px',
+                                }}
+                            // icon={<WorkIcon />}
+                            >
+                                <p className="vertical-timeline-element-subtitle">2023-04-01</p>
+                                <p>
+                                    Graduated B.Eng from @Concordia University as a Software Developer
+                                </p>
+                            </VerticalTimelineElement>
+                            <VerticalTimelineElement
+                                className="vertical-timeline-element--work"
+                                contentStyle={{
+                                    background: 'transparent', color: '#fff',
+                                    boxShadow: '0 0px 0 #ddd',
+                                    marginTop: '-100px',
+                                }}
+                                contentArrowStyle={{ borderRight: '7px solid  transparent' }} iconStyle={{
+                                    background: '#fff',
+                                    color: '#fff',
+                                    width: '5px',
+                                    height: '5px',
+                                    marginLeft: '-3px',
+                                    marginTop: '-50px',
+                                }}
+                            // icon={<WorkIcon />}
+                            >
+                                <p className="vertical-timeline-element-subtitle">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="h-5 w-5"
+                                        viewBox="0 0 20 20"
+                                        style={{ height: '40px', width: '40px' }}
+                                        fill="currentColor"
+                                    >
+                                        <path d="M2.5 15a.5.5 0 1 1 0-1h1v-1a4.5 4.5 0 0 1 2.557-4.06c.29-.139.443-.377.443-.59v-.7c0-.213-.154-.451-.443-.59A4.5 4.5 0 0 1 3.5 3V2h-1a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-1v1a4.5 4.5 0 0 1-2.557 4.06c-.29.139-.443.377-.443.59v.7c0 .213.154.451.443.59A4.5 4.5 0 0 1 12.5 13v1h1a.5.5 0 0 1 0 1h-11zm2-13v1c0 .537.12 1.045.337 1.5h6.326c.216-.455.337-.963.337-1.5V2h-7zm3 6.35c0 .701-.478 1.236-1.011 1.492A3.5 3.5 0 0 0 4.5 13s.866-1.299 3-1.48V8.35zm1 0v3.17c2.134.181 3 1.48 3 1.48a3.5 3.5 0 0 0-1.989-3.158C8.978 9.586 8.5 9.052 8.5 8.351z" />
+
+                                    </svg>
+                                </p>
+                            </VerticalTimelineElement>
+
+                        </VerticalTimeline>
+                        <hr className='hline' />
                     </div>
                     <div className="content" >
-                        <h1>Your Content Goes Here</h1>
-                        <p>This is the content that will appear in the middle of the webpage.</p>
+                        <h1>Projects</h1>
+                        <Box sx={{ width: '600px' }}>
+                            <Grid container rowSpacing={1} columnSpacing={1}>
+                                <Grid xs={6}>
+                                    <Item>
+                                        <p className='projects'>This is the content that will appear in the middle of the webpage.</p>
+                                    </Item>
+                                </Grid>
+                                <Grid xs={6}>
+                                    <Item>
+                                        <p className='projects'>This is the content that will appear in the middle of the webpage.</p>
+                                    </Item>
+                                </Grid>
+                                <Grid xs={6}>
+                                    <Item>
+                                        <p className='projects'>This is the content that will appear in the middle of the webpage.</p>
+                                    </Item> 
+                                </Grid>
+                                <Grid xs={6}>
+                                    <Item>
+                                        <p className='projects'>This is the content that will appear in the middle of the webpage.</p>
+                                    </Item>
+                                </Grid>
+                            </Grid>
+                        </Box>
                     </div>
                     <div className="content">
                         <h1>Your Content Goes Here</h1>
