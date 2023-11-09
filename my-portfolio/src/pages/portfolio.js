@@ -7,6 +7,9 @@ import Grid from '@mui/material/Unstable_Grid2';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import AWSCPC from '../images/aws-certified-cloud-practitioner.png'
+import './portfolio.css'
+import { Chrono } from "react-chrono";
+
 
 
 function Portfolio() {
@@ -185,331 +188,45 @@ function Portfolio() {
         color: theme.palette.text.secondary,
     }));
 
+    const items = [
+        {
+          title: "",
+          cardDetailedText: (
+            <p className='haivisionText'>
+              2021-09-01 <br />
+              First Software Developer Internship as SDET{" "}
+              <span className='haivision'>
+                <a href='https://www.haivision.com/' target="_blank" rel="noopener noreferrer">
+                  @Haivision
+                </a>
+              </span>
+            </p>
+          ),
+        },
+        {
+          title: "",
+          cardDetailedText: (
+            <p className='haivisionText'>
+              2022-05-01 <br />
+              Joined <span className='ukg'><a href='https://www.ukg.ca/' target="_blank" rel="noopener noreferrer">@UKG</a></span> as a Software Developer Intern
+            </p>
+          ),
+        },
+        {
+            title: "",
+            cardDetailedText: (
+                <p  className='haivisionText'>
+                    2023-04-01 <br />
+                Graduated B.Eng from <span className='concordia'><a href='https://www.concordia.ca/' target="_blank">@Concordia University</a></span> as a Software Developer
+            </p>
+            ),
+          },
+      ];
+
+
 
     return (
         <div className=''>
-            <style>
-                {`
-                * {
-                    margin: 0;
-                    padding: 0;
-                    font-family: 'Verdana', sans-serif;
-                }
-
-                body {
-                    background-color: black;
-                    margin: 0; /* Reset margin to 0 */
-                    padding: 0; /* Reset padding to 0 */
-                    background-image: radial-gradient(#2e2f31 1px, transparent 1px);
-                    background-size: 50px 50px;
-                }
-
-                nav {
-                    position: fixed;
-                    height: 350px;
-                    left: 20px;
-                    top: 0;
-                    bottom: 0;
-                    margin: auto 0;
-                    background-color: #2d2e32;
-                    padding: 10px 10px;
-                    border-radius: 30px;
-                }
-
-                nav ul {
-                    list-style: none;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    flex-flow: column;
-                    height: 100%;
-                }
-
-                nav ul li {
-                    width: 100%;
-                }
-
-                nav ul li a {
-                    text-decoration: none;
-                    color: black;
-                    display: flex;
-                    align-items: center;
-                    cursor: pointer;
-                    width: 100%;
-                    transition: 0.2s all ease;
-                }
-
-                nav ul li a svg {
-                    width: 30px;
-                    height: 30px;
-                }
-
-                nav ul li a svg path {
-                    transition: 0.2s all ease;
-                }
-
-                nav ul li a span {
-                    position: absolute;
-                    background-color: white;
-                    padding: 2px 15px;
-                    border-radius: 30px;
-                    margin-left: 10px;
-                    font-weight: 500;
-                    font-size: 15px;
-                    visibility: hidden;
-                    opacity: 0;
-                    transition: 0.2s all ease;
-                }
-
-                nav ul li a.active,
-                nav ul li a:hover {
-                    color: black;
-                }
-
-                nav ul li a.active span,
-                nav ul li a:hover span {
-                    opacity: 1;
-                    visibility: visible;
-                    margin-left: 50px;
-                }
-
-                nav.active ul li a span {
-                    position: relative;
-                    opacity: 1;
-                    visibility: visible;
-                    margin-left: 0;
-                }
-
-                nav.active ul li a:hover span {
-                    margin-left: 0;
-                }
-
-                .list {
-                    border-radius: 50%; /* Make it circular */
-                    width: 40px; /* Set a fixed width to make it a circle */
-                    height: 40px; /* Set a fixed height to make it a circle */
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    background-color: #2d2e32;
-                    transition: 0.2s all ease;
-                }
-                
-                .list a {
-                    text-decoration: none;
-                    color: white;
-                    display: flex;
-                    align-items: center;
-                    cursor: pointer;
-                    width: 80%;
-                    height: 80%;
-                    transition: 0.2s all ease;
-                }
-                
-                .list:hover {
-                    background-color: white;
-                }
-
-                .menuList{
-                    background-color: white;
-                }
-
-                .menuList a{
-                    margin-left: 6px;
-                    margin-top: 6px;
-                    color: black
-                }
-
-                .timeline a{
-                    margin-left: 6px;
-                    margin-top: 6px;
-                }
-
-                .projectList a{
-                    margin-left: 6px;
-                    margin-top: 6px;
-                }
-
-                .certificate a{
-                    margin-left: 6px;
-                    margin-top: 6px;
-                }
-
-                .technology a{
-                    margin-left: 6px;
-                    margin-top: 6px;
-                }
-
-                .useslist a{
-                    margin-left: 6px;
-                    margin-top: 6px;
-                }
-
-                .content {
-                    padding-top: 100px; /* Add some padding to create space for the navigation bar */
-                    color: white;
-                    text-align: left;
-                  }
-                .footerContent{
-                    padding-top: 70px;
-                }
-
-                  .intro {
-                    padding-top: 150px; /* Add some padding to create space for the navigation bar */
-                    color: white;
-                    text-align: left ;
-                    width: 650px;
-
-                  }
-                  .hey{
-                    font-size: 55px;
-                  }
-                  .name{
-                    background-color: #f3ec78;
-                    background-image: linear-gradient(45deg, #f3ec78, #af4261);
-                    background-size: 100%;
-                    -webkit-background-clip: text;
-                    -moz-background-clip: text;
-                    -webkit-text-fill-color: transparent; 
-                    -moz-text-fill-color: transparent;
-                  }
-                  .fullstack{
-                    font-size: 55px;
-                    background-color: #f3ec78;
-                    background-image: linear-gradient(45deg, #f3ec78, #af4261);
-                    background-size: 100%;
-                    -webkit-background-clip: text;
-                    -moz-background-clip: text;
-                    -webkit-text-fill-color: transparent; 
-                    -moz-text-fill-color: transparent;
-                  }
-                  .allContent{
-                    margin-left: 35%;
-                    padding-bottom: 100px;
-                  }
-                  .dot{
-                    color: #71ce9a ;
-                    font-size: 10px;
-                    padding-right: 15px;
-                    padding-bottom: 2px;
-                    background-color: black;
-                  }
-                  .online{
-                    padding-top: 8px;
-                    padding-bottom: 40px;
-                  }
-                  .centered-button {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    padding: 11px 20px; /* Adjust padding as needed */
-                    background-color: #2e2f31; /* Button background color */
-                    color: #fff; /* Button text color */
-                    border: none;
-                    border-radius: 40px; /* Rounded corners */
-                    cursor: pointer;
-                    font-size: 17px;
-                    transition: background-color 0.3s ease-in-out;
-                    margin-top: 40px;
-                     /* Adjust this margin as needed */
-
-                    
-                    /* Optional hover effect */
-                    &:hover {
-                      background-color: grey; /* Change background color on hover */
-                    }
-                  }
-                .midb{
-                    margin-left: 30px;
-                }
-
-                  .socials {
-                    display: flex; /* Display children in a row */
-                    justify-content:  flex-start; /* Space buttons evenly along the row */
-                    align-items: center; /* Align items vertically in the center */
-                }
-                .spanSocial{
-                    margin-left: 10px;
-                    padding-top: 2px;
-                    color: white;
-                }
-                a {
-                    text-decoration: none;
-                  }
-                .descriptionParagraph{
-                    padding-top: 40px;
-                    font-size: 18px;
-                    color: white;
-                    line-height: 30px;
-                }
-                .hline{
-                    margin-top: 40px;
-                    border: None;
-                    width: 650px; 
-                    background-color: grey;
-                    height: 1px; 
-                    float: left;
-                    
-                }
-
-                .custom-vertical-timeline {
-                    max-width: 650px; /* Adjust the value as needed */
-                    margin-right: 650px;
-                  } 
-
-                .timelineHeader{
-                    padding-bottom: 40px;
-                }
-                .vertical-timeline::before{
-                    height: 90%
-                }
-                .projects{
-                    color: #7d7e82;
-                    font-weight:500;
-                    line-height: 25px;
-                    width: 250px;
-                    font-family: Verdana;
-                }
-                .projectsHeader{
-                    color: white;
-                    font-weight:700;
-                }
-                .boxForProjects{
-                    padding-top: 30px;
-                }
-                .projectsContent{
-                    cursor: pointer;
-                }
-                .itemHover:hover {
-                    background-color: #2e2f31;
-                    opacity: 0.8; /* Adjust the opacity value as needed */
-                }
-                .imageCertificateAWSCPC{
-                    height: 180px;
-                    width: 180px;
-                }
-                h3,p{
-                    font-family: Verdana;
-                }
-                .certificateHeader{
-                    color: white;
-                }
-                .certificatePara{
-                    color: white;
-                }
-                .certificateItem{
-                    background-color: transparent;
-                }
-                .technologyItem{
-                    height: 140px;
-                }
-                .technologyItem:hover{
-                    background-color: #2e2f31;
-                    opacity: 0.8; /* Adjust the opacity value as needed */
-                }
-        
-            `}
-            </style>
             <div className='background' style={{ paddingBottom: '80px;' }}>
                 <nav id="menuBar" className="navClass">
                     <ul>
@@ -642,6 +359,7 @@ function Portfolio() {
                     </div>
                     <div className="content timelineclass" ref={timelineRef}>
                         <h1 className='timelineHeader'>My Timeline</h1>
+                        <div className='verticalTimline'>
                         <VerticalTimeline className="custom-vertical-timeline">
                             <VerticalTimelineElement
                                 className="vertical-timeline-element--work icon-hover"
@@ -666,7 +384,7 @@ function Portfolio() {
                             >
                                 <p className="vertical-timeline-element-subtitle">2021-09-01</p>
                                 <p>
-                                    First Software Developer Internship as SDET @Haivision
+                                    First Software Developer Internship as SDET <span className='haivision'><a href='https://www.haivision.com/' target="_blank">@Haivision</a></span>
                                 </p>
                             </VerticalTimelineElement>
                             <VerticalTimelineElement
@@ -690,7 +408,7 @@ function Portfolio() {
                             >
                                 <p className="vertical-timeline-element-subtitle">2022-05-01</p>
                                 <p>
-                                    Joined @UKG as a Software Developer Intern
+                                    Joined <span className='ukg'><a href='https://www.ukg.ca/' target="_blank">@UKG</a></span> as a Software Developer Intern
                                 </p>
                             </VerticalTimelineElement>
                             <VerticalTimelineElement
@@ -713,7 +431,7 @@ function Portfolio() {
                             >
                                 <p className="vertical-timeline-element-subtitle">2023-04-01</p>
                                 <p>
-                                    Graduated B.Eng from @Concordia University as a Software Developer
+                                    Graduated B.Eng from <span className='concordia'><a href='https://www.concordia.ca/' target="_blank">@Concordia University</a></span> as a Software Developer
                                 </p>
                             </VerticalTimelineElement>
                             <VerticalTimelineElement
@@ -748,6 +466,22 @@ function Portfolio() {
                             </VerticalTimelineElement>
 
                         </VerticalTimeline>
+                        </div>
+                        <div className='chronoTimeline' style={{ width: '500px', height: '500px' }}>
+                            <Chrono items={items}
+                                mode="VERTICAL_ALTERNATING"
+                                hideControls="false"
+
+                                theme={{
+                                    primary: 'white',
+                                    secondary: 'black',
+                                    cardBgColor: 'transparent',
+                                    titleColor: 'black',
+                                    titleColorActive: 'white',
+                                }}
+
+                            />
+                        </div>
                         <hr className='hline' />
                     </div>
                     <div className="content projectsContent" ref={projectRef} >
@@ -1644,22 +1378,22 @@ function Portfolio() {
 
                     </div>
                     <div className="content footerContent">
-                        <a href="#" onClick={scrollToMenu} style={{color: 'white', fontFamily: 'Verdana'}}>
+                        <a href="#" onClick={scrollToMenu} style={{ color: 'white', fontFamily: 'Verdana' }}>
                             <h3>Thanks for Scrolling
-                            <svg xmlns="http://www.w3.org/2000/svg" style={{
-                                height: '20px',
-                                width: '20px',
-                                color: 'white',
-                                marginTop: '10px',
-                                marginLeft: '5px',
-                                fontSize: 'bold'
+                                <svg xmlns="http://www.w3.org/2000/svg" style={{
+                                    height: '25px',
+                                    width: '25px',
+                                    color: 'white',
+                                    marginTop: '10px',
+                                    marginLeft: '5px',
+                                    fontSize: 'bold'
 
 
-                            }} fill="currentColor" class="bi bi-arrow-up-right" viewBox="0 -7 20 20">
-                                <path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z" />
-                            </svg>
+                                }} fill="currentColor" class="bi bi-arrow-up-right" viewBox="0 -7 20 20">
+                                    <path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z" />
+                                </svg>
 
-                        </h3>
+                            </h3>
                         </a>
 
                         <hr className='hline' />

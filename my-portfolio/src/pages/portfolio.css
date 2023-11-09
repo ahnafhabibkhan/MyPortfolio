@@ -1,0 +1,489 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Verdana', sans-serif;
+}
+
+body {
+    background-color: black;
+    margin: 0;
+    /* Reset margin to 0 */
+    padding: 0;
+    /* Reset padding to 0 */
+    background-image: radial-gradient(#2e2f31 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+nav {
+    position: fixed;
+    height: 350px;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    background-color: #2d2e32;
+    padding: 10px 10px;
+    border-radius: 30px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: column;
+    height: 100%;
+}
+
+nav ul li {
+    width: 100%;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.2s all ease;
+}
+
+nav ul li a svg {
+    width: 30px;
+    height: 30px;
+}
+
+nav ul li a svg path {
+    transition: 0.2s all ease;
+}
+
+nav ul li a span {
+    position: absolute;
+    background-color: white;
+    padding: 2px 15px;
+    border-radius: 30px;
+    margin-left: 10px;
+    font-weight: 500;
+    font-size: 15px;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.2s all ease;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+    color: black;
+}
+
+nav ul li a.active span,
+nav ul li a:hover span {
+    opacity: 1;
+    visibility: visible;
+    margin-left: 50px;
+}
+
+nav.active ul li a span {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    margin-left: 0;
+}
+
+nav.active ul li a:hover span {
+    margin-left: 0;
+}
+
+.list {
+    border-radius: 50%;
+    /* Make it circular */
+    width: 40px;
+    /* Set a fixed width to make it a circle */
+    height: 40px;
+    /* Set a fixed height to make it a circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2d2e32;
+    transition: 0.2s all ease;
+}
+
+.list a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 80%;
+    height: 80%;
+    transition: 0.2s all ease;
+}
+
+.list:hover {
+    background-color: white;
+}
+
+.menuList {
+    background-color: white;
+}
+
+.menuList a {
+    margin-left: 6px;
+    margin-top: 6px;
+    color: black
+}
+
+.timeline a {
+    margin-left: 6px;
+    margin-top: 6px;
+}
+
+.projectList a {
+    margin-left: 6px;
+    margin-top: 6px;
+}
+
+.certificate a {
+    margin-left: 6px;
+    margin-top: 6px;
+}
+
+.technology a {
+    margin-left: 6px;
+    margin-top: 6px;
+}
+
+.useslist a {
+    margin-left: 6px;
+    margin-top: 6px;
+}
+
+.content {
+    padding-top: 100px;
+    /* Add some padding to create space for the navigation bar */
+    color: white;
+    text-align: left;
+}
+
+.footerContent {
+    padding-top: 70px;
+}
+
+.intro {
+    padding-top: 150px;
+    /* Add some padding to create space for the navigation bar */
+    color: white;
+    text-align: left;
+    max-width: 650px;
+    min-width: 400px;
+
+}
+
+.hey {
+    font-size: 55px;
+}
+
+@media only screen and (max-width: 980px) {
+    .hey {
+        font-size: 45px;
+    }
+}
+
+@media only screen and (max-width: 980px) {
+    .footerContent {
+        display: none
+    }
+}
+
+.name {
+    background-color: #f3ec78;
+    background-image: linear-gradient(45deg, #f3ec78, #af4261);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+
+.haivision {
+    background-color: green;
+    background-image: linear-gradient(45deg, violet, yellow);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+
+.ukg {
+    background-color: green;
+    background-image: linear-gradient(45deg, yellow, green);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+
+.concordia {
+    background-color: green;
+    background-image: linear-gradient(45deg, red, yellow);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+
+.fullstack {
+    font-size: 55px;
+    background-color: #f3ec78;
+    background-image: linear-gradient(45deg, #f3ec78, #af4261);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+
+@media only screen and (max-width: 980px) {
+    .fullstack {
+        font-size: 45px;
+    }
+}
+
+.allContent {
+    margin-left: 35%;
+    padding-bottom: 100px;
+}
+
+@media only screen and (max-width: 1170px) {
+    .allContent {
+        margin-left: 25%;
+    }
+}
+
+@media only screen and (max-width: 980px) {
+    .allContent {
+        margin-left: 20%;
+    }
+}
+
+.dot {
+    color: #71ce9a;
+    font-size: 10px;
+    padding-right: 15px;
+    padding-bottom: 2px;
+    background-color: black;
+}
+
+.online {
+    padding-top: 8px;
+    padding-bottom: 40px;
+}
+
+.centered-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 20px;
+    /* Adjust padding as needed */
+    background-color: #2e2f31;
+    /* Button background color */
+    color: #fff;
+    /* Button text color */
+    border: none;
+    border-radius: 40px;
+    /* Rounded corners */
+    cursor: pointer;
+    font-size: 17px;
+    transition: background-color 0.3s ease-in-out;
+    margin-top: 40px;
+    /* Adjust this margin as needed */
+
+
+    /* Optional hover effect */
+    &:hover {
+        background-color: grey;
+        /* Change background color on hover */
+    }
+}
+
+.midb {
+    margin-left: 30px;
+}
+
+.socials {
+    display: flex;
+    /* Display children in a row */
+    justify-content: flex-start;
+    /* Space buttons evenly along the row */
+    align-items: center;
+    /* Align items vertically in the center */
+}
+
+.spanSocial {
+    margin-left: 10px;
+    padding-top: 2px;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+.descriptionParagraph {
+    padding-top: 40px;
+    font-size: 18px;
+    color: white;
+    line-height: 30px;
+}
+
+@media only screen and (max-width: 980px) {
+    .descriptionParagraph {
+        font-size: 14px;
+    }
+}
+
+
+.hline {
+    margin-top: 40px;
+    border: None;
+    width: 650px;
+    background-color: grey;
+    height: 1px;
+    float: left;
+
+}
+.vline {
+    margin-top: 40px;
+    z-index: 9999;
+    margin-left: 325px;
+    border: None;
+    width: 4px;
+    background-color: white;
+    height: 650px;
+    float: left;
+
+}
+
+.custom-vertical-timeline {
+    max-width: 650px;
+    /* Adjust the value as needed */
+    margin-right: 750px;
+}
+
+@media only screen and (min-width: 1190px) {
+    .custom-vertical-timeline {
+        visibility: visible !important;
+    }
+}
+
+@media only screen and (max-width: 1190px) {
+    .cuchronoTimeline {
+        visibility: visible !important;
+    }
+}
+
+
+
+
+.timelineHeader {
+    padding-bottom: 40px;
+}
+
+.vertical-timeline::before {
+    height: 90%
+}
+
+.projects {
+    color: #7d7e82;
+    font-weight: 500;
+    line-height: 25px;
+    width: 250px;
+    font-family: Verdana;
+}
+
+.projectsHeader {
+    color: white;
+    font-weight: 700;
+}
+
+.boxForProjects {
+    padding-top: 30px;
+}
+
+.projectsContent {
+    cursor: pointer;
+}
+
+.itemHover:hover {
+    background-color: #2e2f31;
+    opacity: 0.8;
+    /* Adjust the opacity value as needed */
+}
+
+.imageCertificateAWSCPC {
+    height: 180px;
+    width: 180px;
+}
+
+h3,
+p {
+    font-family: Verdana;
+}
+
+.certificateHeader {
+    color: white;
+}
+
+.certificatePara {
+    color: white;
+}
+
+.certificateItem {
+    background-color: transparent;
+}
+
+.technologyItem {
+    height: 140px !important;
+}
+
+.technologyItem:hover {
+    background-color: #2e2f31;
+    opacity: 0.8;
+    /* Adjust the opacity value as needed */
+}
+
+.haivisionText{
+    color: white;
+    text-align: right;
+}
+
+@media (max-width: 1190px) {
+    .verticalTimline {
+      display: none;
+    }
+  
+    .chronoTimeline {
+      display: block;
+    }
+  }
+  
+  @media (min-width: 1191px) {
+    .verticalTimline {
+      display: block;
+    }
+  
+    .chronoTimeline {
+      display: none;
+    }
+  }
+
+/*Timeline code*/
+
+
+
+
+
