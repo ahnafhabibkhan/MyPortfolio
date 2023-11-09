@@ -14,6 +14,8 @@ function Portfolio() {
     const timelineRef = useRef(null);
     const projectRef = useRef(null);
     const certificateRef = useRef(null);
+    const technologyRef = useRef(null);
+    const usesRef = useRef(null);
 
 
     const scrollToMenu = () => {
@@ -97,6 +99,58 @@ function Portfolio() {
     const scrollToCertificate = () => {
         if (certificateRef.current) {
             const offsetTop = certificateRef.current.getBoundingClientRect().top;
+            const start = window.scrollY;
+            const target = offsetTop + start;
+            const duration = 1000; // You can adjust the duration as needed (in milliseconds)
+            let startTime = null;
+
+            const animateScroll = (currentTime) => {
+                if (!startTime) {
+                    startTime = currentTime;
+                }
+
+                const progress = (currentTime - startTime) / duration;
+                if (progress < 1) {
+                    window.scrollTo(0, start + progress * (target - start));
+                    requestAnimationFrame(animateScroll);
+                } else {
+                    window.scrollTo(0, target);
+                }
+            };
+
+            requestAnimationFrame(animateScroll);
+        }
+    };
+
+    const scrollToTechnology = () => {
+        if (technologyRef.current) {
+            const offsetTop = technologyRef.current.getBoundingClientRect().top;
+            const start = window.scrollY;
+            const target = offsetTop + start;
+            const duration = 1000; // You can adjust the duration as needed (in milliseconds)
+            let startTime = null;
+
+            const animateScroll = (currentTime) => {
+                if (!startTime) {
+                    startTime = currentTime;
+                }
+
+                const progress = (currentTime - startTime) / duration;
+                if (progress < 1) {
+                    window.scrollTo(0, start + progress * (target - start));
+                    requestAnimationFrame(animateScroll);
+                } else {
+                    window.scrollTo(0, target);
+                }
+            };
+
+            requestAnimationFrame(animateScroll);
+        }
+    };
+
+    const scrollToUses = () => {
+        if (usesRef.current) {
+            const offsetTop = usesRef.current.getBoundingClientRect().top;
             const start = window.scrollY;
             const target = offsetTop + start;
             const duration = 1000; // You can adjust the duration as needed (in milliseconds)
@@ -296,6 +350,9 @@ function Portfolio() {
                     color: white;
                     text-align: left;
                   }
+                .footerContent{
+                    padding-top: 70px;
+                }
 
                   .intro {
                     padding-top: 150px; /* Add some padding to create space for the navigation bar */
@@ -328,6 +385,7 @@ function Portfolio() {
                   }
                   .allContent{
                     margin-left: 35%;
+                    padding-bottom: 100px;
                   }
                   .dot{
                     color: #71ce9a ;
@@ -393,6 +451,7 @@ function Portfolio() {
                     float: left;
                     
                 }
+
                 .custom-vertical-timeline {
                     max-width: 650px; /* Adjust the value as needed */
                     margin-right: 650px;
@@ -451,7 +510,7 @@ function Portfolio() {
         
             `}
             </style>
-            <div className='background'>
+            <div className='background' style={{ paddingBottom: '80px;' }}>
                 <nav id="menuBar" className="navClass">
                     <ul>
                         <li className='list menuList' >
@@ -505,7 +564,7 @@ function Portfolio() {
                             </a>
                         </li>
                         <li className='list technology'>
-                            <a href="#">
+                            <a href="#" onClick={scrollToTechnology}>
                                 <svg
                                     xmlns="http://w3.org/2000/svg"
                                     className="h-5 w-5"
@@ -517,7 +576,7 @@ function Portfolio() {
                                 </svg>
                             </a>
                         </li>
-                        <li className='list useslist'>
+                        <li className='list useslist' onClick={scrollToUses}>
                             <a href="#">
                                 <svg
                                     xmlns="http://w3.org/2000/svg"
@@ -532,7 +591,7 @@ function Portfolio() {
                         </li>
                     </ul>
                 </nav>
-                <div className='allContent'>
+                <div className='allContent' style={{ paddingBottom: '80px;' }}>
                     <div className="intro" ref={introRef}>
                         <p className='online'>
                             <h3><span className='dot'>⬤</span><span className='spanOnline'>Online.</span></h3>
@@ -889,7 +948,7 @@ function Portfolio() {
                         </Box>
                         <hr className='hline' />
                     </div>
-                    <div className="content contentTechnology">
+                    <div className="content contentTechnology" ref={technologyRef}>
                         <h1>Technology</h1>
                         <Box className='boxForProjects' sx={{ width: '650px' }}>
                             <Grid container rowSpacing={2} columnSpacing={2}>
@@ -1323,12 +1382,289 @@ function Portfolio() {
 
                             </Grid>
                         </Box>
+                        <hr className='hline' />
+                    </div>
+                    <div className="content usesContent" ref={usesRef}>
+                        <h1>Uses</h1>
+                        <Box className='boxForProjects' sx={{ width: '650px' }}>
+                            <Grid container rowSpacing={2} columnSpacing={2}>
+                                {/* 1st Row of Uses */}
+                                <Grid xs={4}>
+                                    <Item className='technologyItem' >
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            className="h-5 w-5"
+                                            viewBox="0 0 32 32"
+                                            style={{
+                                                height: '60px',
+                                                width: '60px',
+                                                color: 'white',
+                                                paddingTop: '25px',
+                                                marginLeft: '55px'
+                                            }}
+                                            fill="currentColor"
+                                        >
+                                            <g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+
+                                            <g id="SVGRepo_iconCarrier"> <path d="M30.865 3.448l-6.583-3.167c-0.766-0.37-1.677-0.214-2.276 0.385l-12.609 11.505-5.495-4.167c-0.51-0.391-1.229-0.359-1.703 0.073l-1.76 1.604c-0.583 0.526-0.583 1.443-0.005 1.969l4.766 4.349-4.766 4.349c-0.578 0.526-0.578 1.443 0.005 1.969l1.76 1.604c0.479 0.432 1.193 0.464 1.703 0.073l5.495-4.172 12.615 11.51c0.594 0.599 1.505 0.755 2.271 0.385l6.589-3.172c0.693-0.333 1.13-1.031 1.13-1.802v-21.495c0-0.766-0.443-1.469-1.135-1.802zM24.005 23.266l-9.573-7.266 9.573-7.266z" /> </g>
+
+
+                                        </svg>
+                                        <p style={{ marginLeft: '55px', color: 'white' }}>VS Code</p>
+                                    </Item>
+                                </Grid>
+                                <Grid xs={4}>
+                                    <Item className='technologyItem'>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            className="h-5 w-5"
+                                            viewBox="0 0 24 24"
+                                            style={{
+                                                height: '70px',
+                                                width: '70px',
+                                                color: 'white',
+                                                paddingTop: '20px',
+                                                marginLeft: '50px'
+                                            }}
+                                            fill="currentColor"
+                                        >
+                                            <g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+
+                                            <g id="SVGRepo_iconCarrier">
+
+                                                <path d="M0 0v24h24V0zm3.723 3.111h5v1.834h-1.39v6.277h1.39v1.834h-5v-1.834h1.444V4.945H3.723zm11.055 0H17v6.5c0 .612-.055 1.111-.222 1.556-.167.444-.39.777-.723 1.11-.277.279-.666.557-1.11.668a3.933 3.933 0 0 1-1.445.278c-.778 0-1.444-.167-1.944-.445a4.81 4.81 0 0 1-1.279-1.056l1.39-1.555a3.2 3.2 0 0 0 .833.722c.277.167.611.278.945.278.389 0 .721-.111 1-.389.221-.278.333-.667.333-1.278zM2.222 19.5h9V21h-9z" />
+
+                                            </g>
+
+                                        </svg>
+                                        <p style={{ marginLeft: '60px', color: 'white' }}>IntelliJ</p>
+                                    </Item>
+                                </Grid>
+                                <Grid xs={4}>
+                                    <Item className='technologyItem'>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            className="h-5 w-5"
+                                            viewBox="0 0 32 32"
+                                            style={{
+                                                height: '60px',
+                                                width: '60px',
+                                                color: 'white',
+                                                paddingTop: '25px',
+                                                marginLeft: '55px',
+
+
+                                            }}
+                                            fill="currentColor"
+                                        >
+                                            <g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+
+                                            <g id="SVGRepo_iconCarrier"> <path d="M18.036 0.131c-8.765-1.12-16.781 5.067-17.905 13.833-1.12 8.765 5.067 16.781 13.833 17.905 8.765 1.12 16.781-5.067 17.9-13.833 1.125-8.765-5.061-16.781-13.828-17.905zM21.328 10.115c-0.297 0-0.579 0.12-0.787 0.333l-5.937 5.932-0.411-0.407-0.855-0.859c5.849-5.833 6.907-5.891 7.989-5zM14.849 16.593l5.916-5.921c0.328-0.344 0.875-0.339 1.204 0.005 0.323 0.349 0.291 0.896-0.073 1.197l-6.265 5.5zM15.287 17.521l-1.469 0.317c-0.031 0.005-0.072-0.011-0.088-0.047-0.016-0.032-0.011-0.068 0.016-0.095l0.859-0.859zM11.547 16.907l1.568-1.563 1.172 1.172-2.641 0.567c-0.047 0.011-0.093-0.009-0.115-0.052-0.025-0.041-0.015-0.093 0.016-0.124zM6.688 24.984c-0.057-0.005-0.1-0.057-0.095-0.109 0.005-0.025 0.016-0.047 0.032-0.063h0.005l1.26-1.26 1.631 1.631zM9.921 23.307c-0.124 0.068-0.187 0.209-0.156 0.344l0.271 1.152c0.043 0.167-0.161 0.28-0.281 0.156h-0.005l-1.635-1.636 5.016-5.011 2.427-0.525 1.161 1.167c-1.672 1.468-3.959 2.932-6.797 4.353zM16.959 18.74l-1.12-1.12 6.265-5.5c0.057-0.052 0.109-0.109 0.156-0.167-0.192 1.792-2.703 4.323-5.301 6.787zM21.839 10.125h-0.005c-2.183-2.193 0.901-5.563 3.276-3.584l-2.145 2.152c-0.063 0.061-0.063 0.167 0 0.228l1.661 1.663c-0.932 0.463-2.052 0.276-2.787-0.459zM25.271 10.125c-0.109 0.109-0.229 0.208-0.359 0.291l-1.609-1.609 2.041-2.047c0.885 0.964 0.849 2.443-0.073 3.365zM25.14 8.068c-0.067 0.047-0.093 0.129-0.072 0.208 0.099 0.197 0.072 0.432-0.068 0.599-0.068 0.084-0.052 0.199 0.031 0.265 0.032 0.021 0.068 0.037 0.109 0.037 0.057 0 0.111-0.021 0.141-0.063 0.235-0.281 0.281-0.677 0.12-1.005-0.063-0.083-0.177-0.104-0.261-0.041z" /> </g>
+
+                                        </svg>
+                                        <p style={{ marginLeft: '55px', color: 'white' }}>Postman</p>
+                                    </Item>
+                                </Grid>
+                                {/* 2nd Row of Uses */}
+                                <Grid xs={4}>
+                                    <Item className='technologyItem' >
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            className="h-5 w-5"
+                                            viewBox="0 0 15 15"
+                                            style={{
+                                                height: '60px',
+                                                width: '60px',
+                                                color: 'white',
+                                                paddingTop: '25px',
+                                                marginLeft: '55px'
+                                            }}
+                                            fill="currentColor"
+                                        >
+                                            <g id="SVGRepo_bgCarrier" stroke-whiteidth="0" />
+
+                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+
+                                            <g id="SVGRepo_iconCarrier"> <path d="M3.25781 3.11684C3.67771 3.45796 3.83523 3.43193 4.62369 3.37933L12.0571 2.93299C12.2147 2.93299 12.0836 2.77571 12.0311 2.74957L10.7965 1.85711C10.56 1.67347 10.2448 1.46315 9.64083 1.51576L2.44308 2.04074C2.18059 2.06677 2.12815 2.19801 2.2327 2.30322L3.25781 3.11684ZM3.7041 4.84917V12.6704C3.7041 13.0907 3.91415 13.248 4.38693 13.222L12.5562 12.7493C13.0292 12.7233 13.0819 12.4341 13.0819 12.0927V4.32397C13.0819 3.98306 12.9508 3.79921 12.6612 3.82545L4.12422 4.32397C3.80918 4.35044 3.7041 4.50803 3.7041 4.84917ZM11.7688 5.26872C11.8212 5.50518 11.7688 5.74142 11.5319 5.76799L11.1383 5.84641V11.6205C10.7965 11.8042 10.4814 11.9092 10.2188 11.9092C9.79835 11.9092 9.69305 11.7779 9.37812 11.3844L6.80345 7.34249V11.2532L7.61816 11.437C7.61816 11.437 7.61816 11.9092 6.96086 11.9092L5.14879 12.0143C5.09615 11.9092 5.14879 11.647 5.33259 11.5944L5.80546 11.4634V6.29276L5.1489 6.24015C5.09625 6.00369 5.22739 5.66278 5.5954 5.63631L7.53935 5.50528L10.2188 9.5998V5.97765L9.53564 5.89924C9.4832 5.61018 9.69305 5.40028 9.95576 5.37425L11.7688 5.26872ZM1.83874 1.33212L9.32557 0.780787C10.245 0.701932 10.4815 0.754753 11.0594 1.17452L13.4492 2.85424C13.8436 3.14309 13.975 3.22173 13.975 3.53661V12.7493C13.975 13.3266 13.7647 13.6681 13.0293 13.7203L4.33492 14.2454C3.78291 14.2717 3.52019 14.193 3.23111 13.8253L1.47116 11.5419C1.1558 11.1216 1.02466 10.8071 1.02466 10.4392V2.25041C1.02466 1.77825 1.23504 1.38441 1.83874 1.33212Z" fill="white" /> </g>
+
+                                        </svg>
+                                        <p style={{ marginLeft: '60px', color: 'white' }}>Notion</p>
+                                    </Item>
+                                </Grid>
+                                <Grid xs={4}>
+                                    <Item className='technologyItem'>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            className="h-5 w-5"
+                                            viewBox="0 0 24 24"
+                                            style={{
+                                                height: '70px',
+                                                width: '70px',
+                                                color: 'white',
+                                                paddingTop: '20px',
+                                                marginLeft: '50px'
+                                            }}
+                                            fill="currentColor"
+                                        >
+                                            <g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+
+                                            <g id="SVGRepo_iconCarrier">
+
+                                                <title>OpenAI icon</title>
+
+                                                <path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z" />
+
+                                            </g>
+
+
+                                        </svg>
+                                        <p style={{ marginLeft: '50px', color: 'white' }}>Chat GPT</p>
+                                    </Item>
+                                </Grid>
+                                <Grid xs={4}>
+                                    <Item className='technologyItem'>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            className="h-5 w-5"
+                                            viewBox="0 0 24 24"
+                                            style={{
+                                                height: '60px',
+                                                width: '60px',
+                                                color: 'white',
+                                                paddingTop: '25px',
+                                                marginLeft: '55px',
+
+
+                                            }}
+                                            fill="currentColor"
+                                        >
+                                            <g id="SVGRepo_bgCarrier" stroke-whiteidth="0" />
+
+                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+
+                                            <g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M8.66683 1.25C6.41167 1.25 4.5835 3.07817 4.5835 5.33333C4.5835 6.70965 5.26442 7.92693 6.30776 8.66667C5.26442 9.4064 4.5835 10.6237 4.5835 12C4.5835 13.3763 5.26442 14.5936 6.30777 15.3333C5.26442 16.0731 4.5835 17.2903 4.5835 18.6667C4.5835 20.9218 6.41167 22.75 8.66683 22.75C10.922 22.75 12.7502 20.9218 12.7502 18.6667V15.1624C13.4539 15.738 14.3534 16.0833 15.3335 16.0833C17.5887 16.0833 19.4168 14.2552 19.4168 12C19.4168 10.6237 18.7359 9.4064 17.6926 8.66666C18.7359 7.92693 19.4168 6.70965 19.4168 5.33333C19.4168 3.07817 17.5887 1.25 15.3335 1.25H8.66683ZM11.2502 14.5833H8.66683C7.24009 14.5833 6.0835 13.4267 6.0835 12C6.0835 10.5733 7.24009 9.41666 8.66683 9.41667L11.2502 9.41666L11.2502 12L11.2502 14.5833ZM8.66683 7.91667H11.2502V2.75H8.66683C7.24009 2.75 6.0835 3.9066 6.0835 5.33333C6.0835 6.76007 7.24009 7.91667 8.66683 7.91667ZM17.9168 5.33333C17.9168 6.75914 16.7617 7.91517 15.3363 7.91667L14.0432 7.91666L12.7502 7.91666L12.7502 2.75H15.3335C16.7602 2.75 17.9168 3.9066 17.9168 5.33333ZM12.7502 11.9968C12.7519 10.5726 13.9061 9.41838 15.3303 9.41667L15.336 9.41667C16.7616 9.41801 17.9168 10.5741 17.9168 12C17.9168 13.4267 16.7602 14.5833 15.3335 14.5833C13.9078 14.5833 12.7519 13.4284 12.7502 12.0032V11.9968ZM8.66683 16.0833C7.24009 16.0833 6.0835 17.2399 6.0835 18.6667C6.0835 20.0934 7.24009 21.25 8.66683 21.25C10.0936 21.25 11.2502 20.0934 11.2502 18.6667V16.0833H8.66683Z" fill="white" /> </g>
+
+                                        </svg>
+                                        <p style={{ marginLeft: '62px', color: 'white' }}>Figma</p>
+                                    </Item>
+                                </Grid>
+
+                                {/* 3rd Row of Uses */}
+                                <Grid xs={4}>
+                                    <Item className='technologyItem' >
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            className="h-5 w-5"
+                                            viewBox="-1.5 0 20 20"
+                                            style={{
+                                                height: '60px',
+                                                width: '60px',
+                                                color: 'white',
+                                                paddingTop: '25px',
+                                                marginLeft: '55px'
+                                            }}
+                                            fill="currentColor"
+                                        >
+                                            <g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+
+                                            <g id="SVGRepo_iconCarrier"> <title>apple [white]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-102.000000, -7439.000000)" fill="white"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M57.5708873,7282.19296 C58.2999598,7281.34797 58.7914012,7280.17098 58.6569121,7279 C57.6062792,7279.04 56.3352055,7279.67099 55.5818643,7280.51498 C54.905374,7281.26397 54.3148354,7282.46095 54.4735932,7283.60894 C55.6455696,7283.69593 56.8418148,7283.03894 57.5708873,7282.19296 M60.1989864,7289.62485 C60.2283111,7292.65181 62.9696641,7293.65879 63,7293.67179 C62.9777537,7293.74279 62.562152,7295.10677 61.5560117,7296.51675 C60.6853718,7297.73474 59.7823735,7298.94772 58.3596204,7298.97372 C56.9621472,7298.99872 56.5121648,7298.17973 54.9134635,7298.17973 C53.3157735,7298.17973 52.8162425,7298.94772 51.4935978,7298.99872 C50.1203933,7299.04772 49.0738052,7297.68074 48.197098,7296.46676 C46.4032359,7293.98379 45.0330649,7289.44985 46.8734421,7286.3899 C47.7875635,7284.87092 49.4206455,7283.90793 51.1942837,7283.88393 C52.5422083,7283.85893 53.8153044,7284.75292 54.6394294,7284.75292 C55.4635543,7284.75292 57.0106846,7283.67793 58.6366882,7283.83593 C59.3172232,7283.86293 61.2283842,7284.09893 62.4549652,7285.8199 C62.355868,7285.8789 60.1747177,7287.09489 60.1989864,7289.62485" id="apple-[white]"> </path> </g> </g> </g> </g>
+
+
+                                        </svg>
+                                        <p style={{ marginLeft: '50px', color: 'white' }}>iphone 14</p>
+                                    </Item>
+                                </Grid>
+                                <Grid xs={4}>
+                                    <Item className='technologyItem'>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            className="h-5 w-5"
+                                            viewBox="-1.5 0 20 20"
+                                            style={{
+                                                height: '60px',
+                                                width: '60px',
+                                                color: 'white',
+                                                paddingTop: '25px',
+                                                marginLeft: '55px'
+                                            }}
+                                            fill="currentColor"
+                                        >
+                                            <g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+
+                                            <g id="SVGRepo_iconCarrier"> <title>apple [white]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-102.000000, -7439.000000)" fill="white"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M57.5708873,7282.19296 C58.2999598,7281.34797 58.7914012,7280.17098 58.6569121,7279 C57.6062792,7279.04 56.3352055,7279.67099 55.5818643,7280.51498 C54.905374,7281.26397 54.3148354,7282.46095 54.4735932,7283.60894 C55.6455696,7283.69593 56.8418148,7283.03894 57.5708873,7282.19296 M60.1989864,7289.62485 C60.2283111,7292.65181 62.9696641,7293.65879 63,7293.67179 C62.9777537,7293.74279 62.562152,7295.10677 61.5560117,7296.51675 C60.6853718,7297.73474 59.7823735,7298.94772 58.3596204,7298.97372 C56.9621472,7298.99872 56.5121648,7298.17973 54.9134635,7298.17973 C53.3157735,7298.17973 52.8162425,7298.94772 51.4935978,7298.99872 C50.1203933,7299.04772 49.0738052,7297.68074 48.197098,7296.46676 C46.4032359,7293.98379 45.0330649,7289.44985 46.8734421,7286.3899 C47.7875635,7284.87092 49.4206455,7283.90793 51.1942837,7283.88393 C52.5422083,7283.85893 53.8153044,7284.75292 54.6394294,7284.75292 C55.4635543,7284.75292 57.0106846,7283.67793 58.6366882,7283.83593 C59.3172232,7283.86293 61.2283842,7284.09893 62.4549652,7285.8199 C62.355868,7285.8789 60.1747177,7287.09489 60.1989864,7289.62485" id="apple-[white]"> </path> </g> </g> </g> </g>
+
+
+                                        </svg>
+                                        <p style={{ marginLeft: '60px', color: 'white' }}>ipad pro</p>
+                                    </Item>
+                                </Grid>
+                                <Grid xs={4}>
+                                    <Item className='technologyItem'>
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            className="h-5 w-5"
+                                            viewBox="0 0 16 16"
+                                            style={{
+                                                height: '60px',
+                                                width: '60px',
+                                                color: 'white',
+                                                paddingTop: '25px',
+                                                marginLeft: '55px',
+
+
+                                            }}
+                                            fill="currentColor"
+                                        >
+                                            <g id="SVGRepo_bgCarrier" stroke-whiteidth="0" />
+
+                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+
+                                            <g id="SVGRepo_iconCarrier"> <g fill="white"> <path d="M4.51 7.687c0 .197.02.357.058.475.042.117.096.245.17.384a.233.233 0 01.037.123c0 .053-.032.107-.1.16l-.336.224a.255.255 0 01-.138.048c-.054 0-.107-.026-.16-.074a1.652 1.652 0 01-.192-.251 4.137 4.137 0 01-.164-.315c-.416.491-.937.737-1.565.737-.447 0-.804-.129-1.064-.385-.261-.256-.394-.598-.394-1.025 0-.454.16-.822.484-1.1.325-.278.756-.416 1.304-.416.18 0 .367.016.564.042.197.027.4.07.612.118v-.39c0-.406-.085-.689-.25-.854-.17-.166-.458-.246-.868-.246-.186 0-.377.022-.574.07a4.23 4.23 0 00-.575.181 1.525 1.525 0 01-.186.07.326.326 0 01-.085.016c-.075 0-.112-.054-.112-.166v-.262c0-.085.01-.15.037-.186a.399.399 0 01.15-.113c.185-.096.409-.176.67-.24.26-.07.537-.101.83-.101.633 0 1.096.144 1.394.432.293.288.442.726.442 1.314v1.73h.01zm-2.161.811c.175 0 .356-.032.548-.096.192-.064.362-.182.505-.342a.848.848 0 00.181-.341c.032-.129.054-.283.054-.465V7.03a4.43 4.43 0 00-.49-.09 3.996 3.996 0 00-.5-.033c-.357 0-.617.07-.793.214-.176.144-.26.347-.26.614 0 .25.063.437.196.566.128.133.314.197.559.197zm4.273.577c-.096 0-.16-.016-.202-.054-.043-.032-.08-.106-.112-.208l-1.25-4.127a.938.938 0 01-.048-.214c0-.085.042-.133.127-.133h.522c.1 0 .17.016.207.053.043.032.075.107.107.208l.894 3.535.83-3.535c.026-.106.058-.176.101-.208a.365.365 0 01.213-.053h.426c.1 0 .17.016.212.053.043.032.08.107.102.208l.84 3.578.92-3.578a.459.459 0 01.107-.208.347.347 0 01.208-.053h.495c.085 0 .133.043.133.133 0 .027-.006.054-.01.086a.768.768 0 01-.038.133l-1.283 4.127c-.031.107-.069.177-.111.209a.34.34 0 01-.203.053h-.457c-.101 0-.17-.016-.213-.053-.043-.038-.08-.107-.101-.214L8.213 5.37l-.82 3.439c-.026.107-.058.176-.1.213-.043.038-.118.054-.213.054h-.458zm6.838.144a3.51 3.51 0 01-.82-.096c-.266-.064-.473-.134-.612-.214-.085-.048-.143-.101-.165-.15a.38.38 0 01-.031-.149v-.272c0-.112.042-.166.122-.166a.3.3 0 01.096.016c.032.011.08.032.133.054.18.08.378.144.585.187.213.042.42.064.633.064.336 0 .596-.059.777-.176a.575.575 0 00.277-.508.52.52 0 00-.144-.373c-.095-.102-.276-.193-.537-.278l-.772-.24c-.388-.123-.676-.305-.851-.545a1.275 1.275 0 01-.266-.774c0-.224.048-.422.143-.593.096-.17.224-.32.384-.438.16-.122.34-.213.553-.277.213-.064.436-.091.67-.091.118 0 .24.005.357.021.122.016.234.038.346.06.106.026.208.052.303.085.096.032.17.064.224.096a.461.461 0 01.16.133.289.289 0 01.047.176v.251c0 .112-.042.171-.122.171a.552.552 0 01-.202-.064 2.428 2.428 0 00-1.022-.208c-.303 0-.543.048-.708.15-.165.1-.25.256-.25.475 0 .149.053.277.16.379.106.101.303.202.585.293l.756.24c.383.123.66.294.825.513.165.219.244.47.244.748 0 .23-.047.437-.138.619a1.435 1.435 0 01-.388.47c-.165.133-.362.23-.591.299-.24.075-.49.112-.761.112z" /> <path fill-rule="evenodd" d="M14.465 11.813c-1.75 1.297-4.294 1.986-6.481 1.986-3.065 0-5.827-1.137-7.913-3.027-.165-.15-.016-.353.18-.235 2.257 1.313 5.04 2.109 7.92 2.109 1.941 0 4.075-.406 6.039-1.239.293-.133.543.192.255.406z" clip-rule="evenodd" /> <path fill-rule="evenodd" d="M15.194 10.98c-.223-.287-1.479-.138-2.048-.069-.17.022-.197-.128-.043-.24 1-.705 2.645-.502 2.836-.267.192.24-.053 1.89-.99 2.68-.143.123-.281.06-.217-.1.212-.53.686-1.72.462-2.003z" clip-rule="evenodd" /> </g> </g>
+
+                                        </svg>
+                                        <p style={{ marginLeft: '35px', color: 'white' }}>AWS Services</p>
+                                    </Item>
+                                </Grid>
+
+                            </Grid>
+                        </Box>
+                        <hr className='hline useshline' />
 
                     </div>
-                    <div className="content">
-                        <h1>Your Content Goes Here</h1>
-                        <p>This is the content that will appear in the middle of the webpage.</p>
+                    <div className="content footerContent">
+                        <a href="#" onClick={scrollToMenu} style={{color: 'white', fontFamily: 'Verdana'}}>
+                            <h3>Thanks for Scrolling
+                            <svg xmlns="http://www.w3.org/2000/svg" style={{
+                                height: '20px',
+                                width: '20px',
+                                color: 'white',
+                                marginTop: '10px',
+                                marginLeft: '5px',
+                                fontSize: 'bold'
+
+
+                            }} fill="currentColor" class="bi bi-arrow-up-right" viewBox="0 -7 20 20">
+                                <path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z" />
+                            </svg>
+
+                        </h3>
+                        </a>
+
+                        <hr className='hline' />
                     </div>
+
                 </div>
             </div>
         </div>
