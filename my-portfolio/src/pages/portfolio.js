@@ -467,7 +467,7 @@ function Portfolio() {
 
                         </VerticalTimeline>
                         </div>
-                        <div className='chronoTimeline' style={{ width: '500px', height: '500px' }}>
+                        <div className='chronoTimeline' style={{ width: '500px', height: '700px' }}>
                             <Chrono items={items}
                                 mode="VERTICAL_ALTERNATING"
                                 hideControls="false"
@@ -661,12 +661,12 @@ function Portfolio() {
                         <Box className='boxForProjects' sx={{ width: '650px' }}>
                             <Grid container rowSpacing={2} columnSpacing={2}>
                                 <Grid xs={12}>
-                                    <a href='#' >
+                                    
                                         <Item className='certificateItem' sx={{ display: 'flex', alignItems: 'center' }}>
                                             <div>
                                                 <img src={AWSCPC} className='imageCertificateAWSCPC' alt="AWS Cloud Practioner Certificate" />
                                             </div>
-                                            <div>
+                                            <div className='certificateInformations'>
                                                 <h3 className='certificateHeader'>AWS Cloud Practioner Certificate</h3>
                                                 <p className='certificatePara'>
                                                     Issued Oct 2023 • Expires Oct 2026 <br />
@@ -676,7 +676,6 @@ function Portfolio() {
                                             </div>
 
                                         </Item>
-                                    </a>
                                 </Grid>
                             </Grid>
                         </Box>

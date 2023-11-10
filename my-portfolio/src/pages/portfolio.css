@@ -257,7 +257,13 @@ nav.active ul li a:hover span {
     padding-bottom: 100px;
 }
 
-@media only screen and (max-width: 1170px) {
+@media only screen and (max-width: 1365px) {
+    .allContent {
+        margin-left: 28%;
+    }
+}
+
+@media only screen and (max-width: 1240px) {
     .allContent {
         margin-left: 25%;
     }
@@ -417,7 +423,13 @@ a {
 .projectsContent {
     cursor: pointer;
 }
+.certificateItem{
+    cursor: text;
+}
 
+.certificateInformations{
+    cursor: text;
+}
 .itemHover:hover {
     background-color: #2e2f31;
     opacity: 0.8;
